@@ -19,6 +19,8 @@
 	<th>create_ymd</th>
 	<th>update_ymd</th>
 </tr>
+
+	
 <tr th:if="${list==null}"><td colspan="3">유저목록이 없습니다.</td></tr>
 <th:block th:if="${list !=null}">
 	
@@ -32,6 +34,7 @@
 	<td><a th:href="@{/user/info/{user_id} (user_id=${vo.user_id})}">[[${vo.update_ymd}]]</a></td>
 </tr>
 </th:block>
+
 </table>
 
 </body>
