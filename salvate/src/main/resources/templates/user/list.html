@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html	
+		xmlns:th="http://www.thymeleaf.org"
+		>
+
+<body layout:fragment="container">
+<h3 class="my-4">고객목록</h3>
+
+<table class="tb-list">
+<colgroup>
+	<col width="200px">
+	<col width="300px">
+	<col width="400px">
+</colgroup>	
+<tr><th>user_id</th>
+	<th>user_pw</th>
+	<th>firstname</th>
+	<th>lastname</th>
+	<th>create_ymd</th>
+	<th>update_ymd</th>
+</tr>
+<tr th:if="${list==null}"><td colspan="3">유저목록이 없습니다.</td></tr>
+<th:block th:if="${list !=null}">
+	
+	
+<tr th:each="vo: ${list}">
+	<td><a th:href="@{/user/info (id=${vo.user_id})}">[[${vo.user_id}]]</a></td>
+	<td th:text="${vo.user_pw}"></td>
+	<td><a th:href="@{/user/info/{user_id} (user_id=${vo.user_id})}">[[${vo.firstname}]]</a></td>
+	<td><a th:href="@{/user/info/{user_id} (user_id=${vo.user_id})}">[[${vo.lastname}]]</a></td>
+	<td><a th:href="@{/user/info/{user_id} (user_id=${vo.user_id})}">[[${vo.create_ymd}]]</a></td>
+	<td><a th:href="@{/user/info/{user_id} (user_id=${vo.user_id})}">[[${vo.update_ymd}]]</a></td>
+</tr>
+</th:block>
+</table>
+
+</body>
+</html>
