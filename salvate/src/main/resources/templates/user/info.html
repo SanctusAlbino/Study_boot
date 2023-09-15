@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html	
+		xmlns:th="http://www.thymeleaf.org">
+
+<body layout:fragment="container">
+<h3 class="my-4">유저정보</h3>
+<table class="tb-row">
+<colgroup>
+	<col width="180px">
+	<col>
+</colgroup>
+<tr><th>user_id</th>
+	<td>[[${vo.user_id }]]</td>
+</tr>
+<tr><th>user_pw</th>
+	<td>[[${vo.user_pw }]]</td>
+</tr>
+<tr><th>firstname</th>
+	<td th:text="${vo.firstname }"></td>
+</tr>
+<tr><th>lastname</th>
+	<td>[[${vo.lastname}]]</td>
+</tr>
+<tr><th>create_ymd</th>
+	<td>[[${vo.create_ymd}]]</td>
+</tr>
+<tr><th>update_ymd</th>
+	<td>[[${vo.update_ymd}]]</td>
+</tr>
+</table>
+
+<div class="btn-toolbar gap-2 my-3 justify-content-center">
+	<button class="btn btn-primary" th:onclick="location=[[@{/user/list}]]">유저목록</button>
+	<button class="btn btn-warning" th:onclick="location=[[@{/user/modify(id=${vo.user_id})}]]">정보수정</button>
+	<button class="btn btn-danger"
+		 th:onclick="if( confirm('정말로?? ㅠㅠ')) location=[[@{/user/delete(id=${vo.user_id})}]]">정보삭제</button>
+</div>
+
+</body>
+</html>

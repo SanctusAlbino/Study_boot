@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html	
+		xmlns:th="http://www.thymeleaf.org">
+
+<body layout:fragment="container">
+<form action="/salvate/user/list" method="post" th:object="${user}">
+<h3 class="my-4">유저정보</h3>
+<table class="tb-row">
+        <tr>
+            <th>user_id</th>
+            <td><input type="text" th:field="*{user_id}" /></td>
+        </tr>
+        <tr>
+            <th>user_pw</th>
+            <td><input type="password" th:field="*{user_pw}" /></td>
+        </tr>
+        <tr>
+            <th>firstname</th>
+            <td><input type="text" th:field="*{firstname}" /></td>
+        </tr>
+        <tr>
+            <th>lastname</th>
+            <td><input type="text" th:field="*{lastname}" /></td>
+        </tr>
+        <tr>
+            <th>create_ymd</th>
+            <td><input type="date" th:field="*{create_ymd}" /></td>
+        </tr>
+        <tr>
+            <th>update_ymd</th>
+            <td><input type="date" th:field="*{update_ymd}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">저장</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

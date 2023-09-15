@@ -26,7 +26,7 @@
 	
 	
 <tr th:each="vo: ${list}">
-	<td><a th:href="@{/user/info (id=${vo.user_id})}">[[${vo.user_id}]]</a></td>
+	<td><a th:href="@{/user/info (user_id=${vo.user_id})}">[[${vo.user_id}]]</a></td>
 	<td th:text="${vo.user_pw}"></td>
 	<td><a th:href="@{/user/info/{user_id} (user_id=${vo.user_id})}">[[${vo.firstname}]]</a></td>
 	<td><a th:href="@{/user/info/{user_id} (user_id=${vo.user_id})}">[[${vo.lastname}]]</a></td>
@@ -34,7 +34,7 @@
 	<td><a th:href="@{/user/info/{user_id} (user_id=${vo.user_id})}">[[${vo.update_ymd}]]</a></td>
 </tr>
 </th:block>
-
+<button class="btn btn-primary" th:onclick="location=[[@{/user/list/insert}]]">유저 등록</button>
 </table>
 
 </body>

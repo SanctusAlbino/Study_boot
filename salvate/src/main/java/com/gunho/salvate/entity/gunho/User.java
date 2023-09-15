@@ -1,13 +1,19 @@
 package com.gunho.salvate.entity.gunho;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
+import groovy.transform.builder.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Getter @Setter 
+@Getter @Setter 
+@NoArgsConstructor
 @Entity @Table(name = "USER_TBL")
 public class User {
 	@Id private String user_id;
@@ -49,5 +55,15 @@ public class User {
 	public void setUpdate_ymd(String update_ymd) {
 		this.update_ymd = update_ymd;
 	}
+	
+	@lombok.Builder
+    public User(String user_id, String user_pw, String firstname, String lastname, String create_ymd, String update_ymd) {
+        this.user_id = user_id;
+        this.user_pw = user_pw;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.create_ymd = create_ymd;
+        this.update_ymd = update_ymd;
+    }
 	
 }
